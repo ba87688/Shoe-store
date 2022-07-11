@@ -23,7 +23,6 @@ class ShoeDetailFragment : Fragment() {
 
         binding.buttonCancelShoe.setOnClickListener {view->
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_secondFragment)
-
         }
         binding.buttonSaveShoe.setOnClickListener {
 

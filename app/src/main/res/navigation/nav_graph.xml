@@ -33,7 +33,11 @@
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.shoestore.fragments.instructionscreen.SecondFragment"
-        android:label="SecondFragment" />
+        android:label="SecondFragment" >
+        <action
+            android:id="@+id/action_secondFragment_to_shoeDetailFragment"
+            app:destination="@id/shoeDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/shoeDetailFragment"
         android:name="com.example.shoestore.fragments.shoedetail.ShoeDetailFragment"

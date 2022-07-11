@@ -26,9 +26,21 @@ class SecondFragment: Fragment() {
         val binding:ShoeListDestinationBinding=  DataBindingUtil
             .inflate(inflater,R.layout.shoe_list_destination,container,false)
 
+
+        binding.floatingActionButton.setOnClickListener { it->
+            Timber.i("Clicked action buttom")
+            it.findNavController().navigate(R.id.action_secondFragment_to_shoeDetailFragment)
+
+
+        }
+
         return binding.root
     }
+    fun onFabClicked(){
+        Timber.i("Clicked action buttom")
 
+
+    }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
 
         super.onCreateOptionsMenu(menu, inflater)
@@ -39,6 +51,9 @@ class SecondFragment: Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         Timber.i("clicked on teh menu")
+
         return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
-                || super.onOptionsItemSelected(item)    }
+                || super.onOptionsItemSelected(item)
+
+    }
 }

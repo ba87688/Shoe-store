@@ -13,9 +13,10 @@
             android:id="@+id/tv_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
             android:text="Label"
-            app:layout_constraintBottom_toTopOf="@+id/et_shoe_name"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,49 +24,53 @@
             android:id="@+id/et_shoe_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="44dp"
+            android:layout_marginTop="24dp"
             android:ems="10"
             android:hint="Shoe Name"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/et_shoe_company"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_label" />
 
         <EditText
             android:id="@+id/et_shoe_company"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
             android:ems="10"
             android:hint="Shoe company"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="@+id/et_shoe_name"
-            app:layout_constraintStart_toStartOf="@+id/et_shoe_name"
-            tools:layout_editor_absoluteY="274dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_shoe_name" />
 
         <EditText
             android:id="@+id/et_shoe_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Shoe Size"
             android:inputType="number"
-            app:layout_constraintBottom_toTopOf="@+id/et_shoe_description"
-            app:layout_constraintEnd_toEndOf="@+id/et_shoe_company"
-            app:layout_constraintStart_toStartOf="@+id/et_shoe_company"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/et_shoe_company" />
 
         <EditText
             android:id="@+id/et_shoe_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
             android:ems="10"
             android:hint="Shoe Description"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="@+id/et_shoe_size"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/et_shoe_size"
-            tools:layout_editor_absoluteY="410dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_shoe_size" />
 
         <Button
             android:id="@+id/button_cancel_shoe"
