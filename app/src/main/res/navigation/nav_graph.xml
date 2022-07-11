@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/loginFragment"
 
-        android:name="com.example.shoestore.screens.login.LoginFragment"
+        android:name="com.example.shoestore.fragments.login.LoginFragment"
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_welcomeFragment"
@@ -16,7 +16,30 @@
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.example.shoestore.screens.welcomescreen.WelcomeFragment"
+        android:name="com.example.shoestore.fragments.welcomescreen.WelcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" />
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_instructionsFragment"
+            app:destination="@id/instructionsFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionsFragment"
+        android:name="com.example.shoestore.fragments.instructionscreen.InstructionsFragment"
+        android:label="InstructionsFragment" />
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.example.shoestore.fragments.instructionscreen.SecondFragment"
+        android:label="SecondFragment" />
+    <fragment
+        android:id="@+id/shoeDetailFragment"
+        android:name="com.example.shoestore.fragments.shoedetail.ShoeDetailFragment"
+        android:label="ShoeDetailFragment" >
+        <action
+            android:id="@+id/action_shoeDetailFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
 </navigation>
