@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.onNavDestinationSelected
 import com.example.shoestore.R
 import com.example.shoestore.databinding.FragmentInstructionsBinding
 import com.example.shoestore.databinding.ShoeListDestinationBinding
@@ -52,8 +55,12 @@ class SecondFragment: Fragment() {
 
         Timber.i("clicked on teh menu")
 
-        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
-                || super.onOptionsItemSelected(item)
+        val navContoller = requireView().findNavController()
+        return item.onNavDestinationSelected(navContoller)
+
+
+//        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
+//                || super.onOptionsItemSelected(item)
 
     }
 }
