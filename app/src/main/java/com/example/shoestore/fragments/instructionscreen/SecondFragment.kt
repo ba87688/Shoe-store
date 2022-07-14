@@ -1,20 +1,29 @@
 package com.example.shoestore.fragments.instructionscreen
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.*
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
+
 import androidx.navigation.ui.onNavDestinationSelected
 import com.example.shoestore.R
-import com.example.shoestore.databinding.FragmentInstructionsBinding
 import com.example.shoestore.databinding.ShoeListDestinationBinding
+import com.example.shoestore.fragments.adapter.ShoeAdapter
+import com.example.shoestore.viewmodel.ShoeStoreViewModel
 import timber.log.Timber
 
-class SecondFragment: Fragment() {
+class SecondFragment : Fragment() {
+
+    private lateinit var viewModel: ShoeStoreViewModel
+
+
+    lateinit var ar: SecondFragmentArgs
 
 
     override fun onCreateView(
@@ -22,28 +31,59 @@ class SecondFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
         setHasOptionsMenu(true)
 
-        val binding:ShoeListDestinationBinding=  DataBindingUtil
-            .inflate(inflater,R.layout.shoe_list_destination,container,false)
+        val binding: ShoeListDestinationBinding = DataBindingUtil
+            .inflate(inflater, R.layout.shoe_list_destination, container, false)
+        viewModel = ViewModelProvider(this).get(ShoeStoreViewModel::class.java)
 
 
-        binding.floatingActionButton.setOnClickListener { it->
+//
+//        val shoe1 = Shoe("Evan",11.2,"Nike","Crappy shoes")
+//        val shoe2 = Shoe("Evan",11.2,"Nike","Crappy shoes")
+//        val shoe3 = Shoe("Evan",11.2,"Nike","Crappy shoes")
+//
+//        val listOfShoes = mutableListOf<Shoe>(shoe1,shoe2,shoe2)
+
+
+        var ar = arguments?.let { SecondFragmentArgs.fromBundle(it) }
+        if (ar?.shoeH?.name!=null){
+            Timber.i(""+ar.shoeH)
+            viewModel.shoeList.value?.add(ar.shoeH!!)
+
+
+
+//
+//            val layout = binding.crazyLayout
+//            var textView =TextView(context)
+//            textView.text = ar.shoeH!!.name
+//            layout.addView(textView)
+
+        }
+        viewModel.shoeList.observe(viewLifecycleOwner, Observer { it ->
+
+            binding.recyclerView.adapter = ShoeAdapter(it)
+
+
+        })
+
+
+        //Floating action button click listener
+        binding.floatingActionButton.setOnClickListener { it ->
             Timber.i("Clicked action buttom")
             it.findNavController().navigate(R.id.action_secondFragment_to_shoeDetailFragment)
 
 
         }
-
         return binding.root
     }
-    fun onFabClicked(){
+
+    fun onFabClicked() {
         Timber.i("Clicked action buttom")
 
 
     }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
 
         super.onCreateOptionsMenu(menu, inflater)

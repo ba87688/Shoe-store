@@ -53,7 +53,7 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Shoe Size"
-            android:inputType="number"
+            android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

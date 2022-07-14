@@ -32,7 +32,9 @@ class LoginFragment:Fragment() {
             Timber.i("Log in Button")
         }
         binding.buttonSignUp.setOnClickListener { view:View->
-            view.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
+            var action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment("EVan")
+            view.findNavController().navigate(action)
+//            view.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
 
             Timber.i("Sign up Button")
         }

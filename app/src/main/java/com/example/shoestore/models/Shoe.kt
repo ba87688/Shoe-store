@@ -9,8 +9,8 @@ data class Shoe(var name: String, var size:Double, var company:String,var descri
     :Parcelable {
 
 //var images: List<String> = mutableListOf())
-
-
+@Parcelize
+class Shoes: ArrayList<Shoe>(), Parcelable
 
 
 
